@@ -1,6 +1,6 @@
 # Java-Project-Sudoku
 
-## 기능 구형 상황 ##
+## 기능 구현 상황 ##
 
 1. Console
   * 보드판 섞기
