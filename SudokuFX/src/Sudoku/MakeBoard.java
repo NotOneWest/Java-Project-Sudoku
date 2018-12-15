@@ -125,29 +125,4 @@ class MakeBoard
     	return holeset;
     }
     
-    public static void ShowBoard(int[][] board, int[][] h_board) {
-	    System.out.println("S |  1  2  3  4  5  6  7  8  9  ");
-	    System.out.println("- +  -  -  -  -  -  -  -  -  -  ");
-	    for(int x=0; x<9; x++) {
-	    	System.out.print((x+1) + " |  ");
-			for (int y=0; y<9; y++) {
-				if (board[x][y] == 0) {
-					System.out.print("_  ");
-				}
-				else if(board[x][y] != 0 && h_board[x][y] == 0) {
-					System.out.print(board[x][y] + "! ");
-				}
-				else {
-					System.out.print(board[x][y]+"  ");
-				}
-			}
-			System.out.println();
-	 	}
-    	
-    	
-    	
-    	
-
-    }
-    
 }

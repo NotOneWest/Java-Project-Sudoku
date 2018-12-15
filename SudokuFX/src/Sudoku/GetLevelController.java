@@ -15,7 +15,7 @@ public class GetLevelController extends GameBoard{
 		getlv = ((Button) event.getSource()).getText();
 		if(getlv.equals("easy")) {
 			StartGameEasy(event);
-		} else {
+		} else if(getlv.equals("hard")){
 			StartGameHard(event);
 		}
 	}

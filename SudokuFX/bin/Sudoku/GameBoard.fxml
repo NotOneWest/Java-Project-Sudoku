@@ -6,18 +6,18 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" style="-fx-background-color: darkcyan;" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sudoku.GameController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" style="-fx-background-color: darkcyan;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sudoku.GameController">
    <children>
-      <Button layoutX="40.0" layoutY="550.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="1" />
-      <Button layoutX="160.0" layoutY="550.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="3" />
-      <Button layoutX="220.0" layoutY="550.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="4" />
-      <Button layoutX="100.0" layoutY="550.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="2" />
-      <Button layoutX="400.0" layoutY="550.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="7" />
-      <Button layoutX="280.0" layoutY="550.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="5" />
-      <Button layoutX="460.0" layoutY="550.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="8" />
-      <Button layoutX="520.0" layoutY="550.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="9" />
-      <Button layoutX="340.0" layoutY="550.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="40.0" text="6" />
-      <GridPane fx:id="sudokuTable" gridLinesVisible="true" layoutX="75.0" layoutY="40.0" prefHeight="450.0" prefWidth="450.0" style="-fx-background-color: white;">
+      <Button layoutX="40.0" layoutY="550.0" mnemonicParsing="false" onAction="#btn1" prefHeight="40.0" prefWidth="40.0" text="1" />
+      <Button layoutX="160.0" layoutY="550.0" mnemonicParsing="false" onAction="#btn3" prefHeight="40.0" prefWidth="40.0" text="3" />
+      <Button layoutX="220.0" layoutY="550.0" mnemonicParsing="false" onAction="#btn4" prefHeight="40.0" prefWidth="40.0" text="4" />
+      <Button layoutX="100.0" layoutY="550.0" mnemonicParsing="false" onAction="#btn2" prefHeight="40.0" prefWidth="40.0" text="2" />
+      <Button layoutX="400.0" layoutY="550.0" mnemonicParsing="false" onAction="#btn7" prefHeight="40.0" prefWidth="40.0" text="7" />
+      <Button layoutX="280.0" layoutY="550.0" mnemonicParsing="false" onAction="#btn5" prefHeight="40.0" prefWidth="40.0" text="5" />
+      <Button layoutX="460.0" layoutY="550.0" mnemonicParsing="false" onAction="#btn8" prefHeight="40.0" prefWidth="40.0" text="8" />
+      <Button layoutX="520.0" layoutY="550.0" mnemonicParsing="false" onAction="#btn9" prefHeight="40.0" prefWidth="40.0" text="9" />
+      <Button layoutX="340.0" layoutY="550.0" mnemonicParsing="false" onAction="#btn6" prefHeight="40.0" prefWidth="40.0" text="6" />
+      <GridPane fx:id="sudokuTable" gridLinesVisible="true" layoutX="75.0" layoutY="40.0" onMouseClicked="#gridPaneClicked" prefHeight="450.0" prefWidth="450.0" style="-fx-background-color: white;">
         <columnConstraints>
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
