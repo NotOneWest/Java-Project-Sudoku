@@ -8,8 +8,8 @@ class CheckAnswer
 		boolean a = true;
 		for(int x=0; x<9;x++) {
 			if (a_board[col][x] == answer || a_board[x][row] == answer) {
-				System.out.println("fasle");
 				a = false;
+				System.out.println(a);
 				return a;
 			}
 			else {
@@ -27,8 +27,8 @@ class CheckAnswer
 		for(int i = 0; i<3; i++) {
 			for(int j=0; j<3; j++) {
 				if (a_board[box_col + i][box_row + j] == answer) {
-					System.out.println("fasle");
 					a = false;
+					System.out.println(a);
 					return a;
 				}
 				else {
@@ -36,7 +36,10 @@ class CheckAnswer
 				}
 			}
 		}
-		System.out.println("true");
+//		if(a_board[col][row] == answer) {
+//			a = true;
+//		}
+		System.out.println(a);
 		return a;
 	}
 }
