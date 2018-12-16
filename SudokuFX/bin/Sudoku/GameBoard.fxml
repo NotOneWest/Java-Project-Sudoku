@@ -5,6 +5,9 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="600.0" style="-fx-background-color: darkcyan;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Sudoku.GameController">
    <children>
@@ -17,7 +20,7 @@
       <Button layoutX="460.0" layoutY="550.0" mnemonicParsing="false" onAction="#btn8" prefHeight="40.0" prefWidth="40.0" text="8" />
       <Button layoutX="520.0" layoutY="550.0" mnemonicParsing="false" onAction="#btn9" prefHeight="40.0" prefWidth="40.0" text="9" />
       <Button layoutX="340.0" layoutY="550.0" mnemonicParsing="false" onAction="#btn6" prefHeight="40.0" prefWidth="40.0" text="6" />
-      <GridPane fx:id="sudokuTable" gridLinesVisible="true" layoutX="75.0" layoutY="40.0" onMouseClicked="#gridPaneClicked" prefHeight="450.0" prefWidth="450.0" style="-fx-background-color: white;">
+      <GridPane fx:id="sudokuTable" gridLinesVisible="true" layoutX="75.0" layoutY="40.0" onMouseClicked="#gridPaneClicked" prefHeight="450.0" prefWidth="450.0" style="-fx-background-color: white;" AnchorPane.leftAnchor="75.0" AnchorPane.topAnchor="40.0">
         <columnConstraints>
           <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
             <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -41,5 +44,24 @@
           <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
       </GridPane>
+      <Line endX="150.0" endY="450.0" layoutX="71.0" layoutY="333.0" startX="150.0" stroke="BLUE" strokeWidth="3.0" AnchorPane.leftAnchor="224.0" AnchorPane.topAnchor="40.0" />
+      <Line endX="150.0" endY="450.0" layoutX="212.0" layoutY="352.0" startX="150.0" stroke="BLUE" strokeWidth="3.0" AnchorPane.leftAnchor="374.0" AnchorPane.topAnchor="40.0" />
+      <Line endX="150.0" endY="450.0" layoutX="81.0" layoutY="343.0" rotate="90.0" startX="150.0" stroke="BLUE" strokeWidth="3.0" AnchorPane.leftAnchor="298.5" AnchorPane.topAnchor="-36.0" />
+      <Line endX="150.0" endY="450.0" layoutX="91.0" layoutY="353.0" rotate="90.0" startX="150.0" stroke="BLUE" strokeWidth="3.0" AnchorPane.leftAnchor="298.5" AnchorPane.topAnchor="114.0" />
+      <Button fx:id="EndBtn" layoutX="492.0" layoutY="616.0" mnemonicParsing="false" onAction="#Ranking" text="End">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Button>
+      <Text layoutX="45.0" layoutY="646.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Timer">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
+      <Text layoutX="160.0" layoutY="646.0" strokeType="OUTSIDE" strokeWidth="0.0" text="0">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>

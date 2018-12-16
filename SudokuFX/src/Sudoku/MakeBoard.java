@@ -3,7 +3,6 @@ package Sudoku;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Scanner;
 
 class MakeBoard
 {
@@ -69,27 +68,6 @@ class MakeBoard
 			
 		return board;
 	}
-
-	// 난이도 받기
-    public static int GetLevel(Scanner scan) {
-    	String level = scan.next();
-    	// 쉬움 어려움 입력받아 빈칸의 갯수 지정.
-    	while (level.equals("easy") == false && level.equals("hard") == false) {
-    		System.out.println("다시 입력해주세요!");
-    		level = scan.next();    		
-    	}
-    	
-    	int holes = 0;
-    	
-    	if (level.equals("hard")) {
-    		holes = 41;
-    	}
-    	else if (level.equals("easy")) {
-    		holes = 21;
-    	}
-    	
-    	return holes;
-    }
     
     // 난이도 받기에서 받은 구멍 개수만큼 구멍을 뚫는 함수
     public static int[][] MakeHoles(int[][] board,int holes) {
@@ -106,23 +84,6 @@ class MakeBoard
     		holes_num--;
     	}
     	return p_board;
-    }
-    
-    // 구멍을 뚫은 위치를 저장해주는 함수.
-    // 첫 번째 배열은 가로, 두 번째 배열은 세로.
-    public static int[][] Holeset(int[][] p_board, int holes_num){
-    	int[][] holeset = new int[2][holes_num];
-    	int holes = holes_num;
-	    for(int i=0; i<9; i++) {
-	    	for(int j=0; j<9; j++) {
-	    		if (p_board[i][j] == 0) {
-	    			holeset[0][(holes_num-holes)] = i;
-	    			holeset[1][(holes_num-holes)] = j;
-	    			holes--;
-	    		}
-	    	}
-	    }
-    	return holeset;
     }
     
 }

@@ -1,11 +1,18 @@
 package Sudoku;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
@@ -13,40 +20,43 @@ import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class GameController implements Initializable {
 	
+	private long StartTime;
+	private long EndTime;
+	public static long Time;
+	public static float t;
+	@FXML private Text TimeText;
+	
 	private int mouse_x;
 	private int mouse_y;
+	private int holes;
 	
 	private int[][] p_board;
 	private int[][] h_board = new int[9][9];
 	private int[][] a_board = new int[9][9];
+	
+	@FXML private Button EndBtn;
 	
     @FXML
     private GridPane sudokuTable;
 
 	@Override
 	public void initialize(URL location, ResourceBundle resources) { // 보드를 만들어준다.
-		int holes = GameBoard.holes;
+		holes = GameBoard.holes;
 		int[][] board = Sudoku.MakeBoard.CreateBoard();
 		p_board = Sudoku.MakeBoard.MakeHoles(board, holes);
 		for(int i=0; i<9; i++) {
 			for(int j=0; j<9; j++) {
 				h_board[i][j] = p_board[i][j];
-			}
-		}
-		for(int i=0; i<9; i++) {
-			for(int j=0; j<9; j++) {
 				a_board[i][j] = p_board[i][j];
 			}
 		}
-		for(int i=0; i<9; i++) {
-			for(int j=0; j<9; j++) {
-				System.out.print(p_board[i][j] + "  ");
-			}
-			System.out.println();
-		}
+		
+		StartTime = System.currentTimeMillis();
+		
 		for(int x=0; x<9; x++) {
 			for(int y=0; y<9; y++) {
 				if(p_board[x][y] != 0) { // 0이 아닌수들은 보드에 표시
@@ -67,10 +77,16 @@ public class GameController implements Initializable {
 			label.setText(Integer.toString(p_board[x][y]));
 			label.setStyle("-fx-background-color:white;");
 			boolean check = Sudoku.CheckAnswer.Grading(a_board,y,x,val);
-			if(check == true) {
+			if(check) {
 				label.setTextFill(Color.BLUE);
+				holes--;
+				a_board[x][y] = val;
 			}
 			else label.setTextFill(Color.RED);
+			if(holes<0) {
+				holes = 0;
+				a_board[x][y] = 0;
+			}
 			sudokuTable.add(label, x, y);
 		}
 	}
@@ -130,6 +146,25 @@ public class GameController implements Initializable {
 	@FXML
 	public void btn9() {
 		FillYourAnswer(9, mouse_x, mouse_y);
+	}
+	
+	public float CloseTime() {
+		EndTime = System.currentTimeMillis();
+		Time = EndTime - StartTime;
+		t = Time/1000.0f;
+		
+		return t;
+	}
+	
+	public void Ranking(ActionEvent event) throws IOException{
+		if(holes == 0) {
+			CloseTime();
+			Parent root = FXMLLoader.load(getClass().getResource("InputRanking.fxml"));
+			Stage primaryStage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+			primaryStage.setScene(new Scene(root));
+			primaryStage.setTitle("Sudoku");
+			primaryStage.show();
+		}
 	}
 }
 

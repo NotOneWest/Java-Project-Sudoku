@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 
 public class GameBoard{
 	public static int holes;
+	
 	public void StartGameEasy(ActionEvent event) throws IOException{
 		holes = 21;
 		Parent root = FXMLLoader.load(getClass().getResource("GameBoard.fxml"));
@@ -28,5 +29,4 @@ public class GameBoard{
 		primaryStage.setTitle("Sudoku");
 		primaryStage.show();
 	}
-	
 }
